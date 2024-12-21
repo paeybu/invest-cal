@@ -105,26 +105,28 @@ const CompoundInterestCalculator = () => {
         </Button>
       </Group>
 
-      <LineChart
-        h={300}
-        mt="xl"
-        data={chartData}
-        dataKey="year"
-        valueFormatter={(val) => val.toLocaleString()}
-        series={[
-          {
-            name: "futureValue",
-            color: "red.6",
-            label: "Future Value",
-          },
-          {
-            name: "totalContributions",
-            color: "blue.6",
-            label: "Total Contributions",
-          },
-        ]}
-        curveType="linear"
-      />
+      {chartData.length > 0 && (
+        <LineChart
+          h={300}
+          mt="xl"
+          data={chartData}
+          dataKey="year"
+          valueFormatter={(val) => val.toLocaleString()}
+          series={[
+            {
+              name: "futureValue",
+              color: "red.6",
+              label: "Future Value",
+            },
+            {
+              name: "totalContributions",
+              color: "blue.6",
+              label: "Total Contributions",
+            },
+          ]}
+          curveType="linear"
+        />
+      )}
 
       {tableData.length > 0 && (
         <>
@@ -139,9 +141,9 @@ const CompoundInterestCalculator = () => {
           <Table mt="lg" highlightOnHover>
             <Table.Thead>
               <Table.Tr>
-                <Table.Th ta='right'>Year</Table.Th>
-                <Table.Th ta='right'>Future Value (THB)</Table.Th>
-                <Table.Th ta='right'>Total Contributions (THB)</Table.Th>
+                <Table.Th ta="right">Year</Table.Th>
+                <Table.Th ta="right">Future Value (THB)</Table.Th>
+                <Table.Th ta="right">Total Contributions (THB)</Table.Th>
               </Table.Tr>
             </Table.Thead>
             <Table.Tbody>
